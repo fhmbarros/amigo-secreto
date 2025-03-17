@@ -62,10 +62,12 @@ function sortearAmigo() {
     //console.log(nomeSorteado);
 
     let resultado = document.getElementById("resultado");
-    resultado.innerHTML = `O nome sorteado foi ${nomeSorteado}.`;
+    let texto = `O nome sorteado foi ${nomeSorteado}.`;
+    resultado.innerHTML = texto;
 
-    sorteioRealizado = true;
-    
+    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});
+
+      
     limparLista();
 }
 
