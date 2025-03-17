@@ -4,6 +4,16 @@
 let amigos = [];
 
 
+//Adiciona funcionalidade de chamar a função adicionarAmigo() ao apertar a tecla enter.
+document.getElementById("amigo").addEventListener("keydown", apertarTeclaEnter);
+
+function apertarTeclaEnter(evento) {
+    if (evento.key === "Enter") {
+        adicionarAmigo();
+    }
+}
+
+
 //Função para adicionar nomes à lista amigos.
 function adicionarAmigo() {
     let nomeAmigo = document.querySelector("#amigo").value.trim();
@@ -26,15 +36,6 @@ function adicionarAmigo() {
 
 
 function atualizarListaAmigos() {
-    // let lista = document.getElementById("listaAmigos");
-    // lista.innerHTML = "";
-
-    // for (let nome in amigos) {
-    //     let item = document.createElement('li');
-    //     item.textContent = nome;
-    //     lista.appendChild(item);
-    // }
-
     let lista = document.querySelector('#listaAmigos');
     lista.innerHTML = '';
 
@@ -47,7 +48,10 @@ function atualizarListaAmigos() {
 
 function sortearAmigo() {
     if (amigos.length === 0) {
-        alert("É preciso adicionar nomes de amigos antes de sortear");
+        alert("É preciso adicionar nomes antes de sortear");
+        return;
+    } else if (amigos.length < 2) {
+        alert("É preciso no mínimo 2 nomes para realizar o sorteio.")
         return;
     }
 
@@ -59,12 +63,23 @@ function sortearAmigo() {
 
     let resultado = document.getElementById("resultado");
     resultado.innerHTML = `O nome sorteado foi ${nomeSorteado}.`;
-       
+
+    sorteioRealizado = true;
+    
+    limparLista();
 }
 
 function limparCampo () {
     document.getElementById("amigo").value = "";
 }
+
+function limparLista() {
+    amigos = [];
+    atualizarListaAmigos();
+    
+}
+
+
 
 
 
