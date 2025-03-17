@@ -19,9 +19,7 @@ function adicionarAmigo() {
     }
 
     amigos.push(nomeAmigo);
-
-    document.getElementById("amigo").value = "";
-
+    limparCampo();  
     atualizarListaAmigos();
     
 }
@@ -61,7 +59,11 @@ function sortearAmigo() {
 
     let resultado = document.getElementById("resultado");
     resultado.innerHTML = `O nome sorteado foi ${nomeSorteado}.`;
-        
+       
+}
+
+function limparCampo () {
+    document.getElementById("amigo").value = "";
 }
 
 
