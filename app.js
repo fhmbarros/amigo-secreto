@@ -47,6 +47,23 @@ function atualizarListaAmigos() {
     });
 }
 
+function sortearAmigo() {
+    if (amigos.length === 0) {
+        alert("É preciso adicionar nomes de amigos antes de sortear");
+        return;
+    }
+
+    let indiceAleatorio = Math.floor(Math.random() * amigos.length);
+
+    let nomeSorteado = amigos[indiceAleatorio];
+
+    //console.log(nomeSorteado);
+
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML = `O nome sorteado foi ${nomeSorteado}.`;
+        
+}
+
 
 
 
