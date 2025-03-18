@@ -3,6 +3,12 @@
 //Lista para adicionar os nomes dos amigos
 let amigos = [];
 
+//Adiciona a funcionalidade de falar a mensagem inicial
+let mensagemInicial = document.querySelector('h2');
+let textoInicial = "Digite o nome dos seus amigos"
+mensagemInicial.innerHTML = textoInicial
+responsiveVoice.speak(textoInicial, 'Brazilian Portuguese Female', {rate:1.2});
+
 
 //Adiciona funcionalidade de chamar a função adicionarAmigo() ao apertar a tecla enter.
 document.getElementById("amigo").addEventListener("keydown", apertarTeclaEnter);
@@ -12,7 +18,6 @@ function apertarTeclaEnter(evento) {
         adicionarAmigo();
     }
 }
-
 
 //Função para adicionar nomes à lista amigos.
 function adicionarAmigo() {
