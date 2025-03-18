@@ -21,20 +21,20 @@ function adicionarAmigo() {
     if  (nomeAmigo === ""){
         alert("Por favor, insira um nome válido.");
         return;
-    }
-
-    if (amigos.includes(nomeAmigo)) {
+    } else if (amigos.includes(nomeAmigo)) {
         alert("Este nome já foi incluído.");
         return;
+    } else {
+        amigos.push(nomeAmigo);
     }
 
-    amigos.push(nomeAmigo);
-    limparCampo();  
-    atualizarListaAmigos();
-    
+    limparCampo();
+
+    atualizarListaAmigos();    
 }
 
 
+// Função para exibir listagem com os nomes abaixo do elemento de input.
 function atualizarListaAmigos() {
     let lista = document.querySelector('#listaAmigos');
     lista.innerHTML = '';
@@ -46,6 +46,7 @@ function atualizarListaAmigos() {
     });
 }
 
+//Função para sortear um dos nomes da lista.
 function sortearAmigo() {
     if (amigos.length === 0) {
         alert("É preciso adicionar nomes antes de sortear");
@@ -66,7 +67,6 @@ function sortearAmigo() {
     resultado.innerHTML = texto;
 
     responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});
-
       
     limparLista();
 }
